@@ -24,6 +24,11 @@ MongoDB后台管理 Shell
     db.getName()
 ```
 
+显示当前db状态
+```
+    db.stats()
+```
+
 列出所有db名称及占用情况（刚创建未添加数据的db不显示）
 ```
     show dbs
@@ -42,4 +47,41 @@ MongoDB后台管理 Shell
 删除数据库（ :hibiscus: 删除当前数据库 ）
 ```
     db.dropDatabase();
+```
+
+显示当前db中的集合
+```
+    show collections
+    // 或
+    db.getCollectionNames()
+```
+
+删除集合（ :hibiscus: collection 简写为 col ）
+```
+    db.col.drop()
+```
+
+集合中插入文档（ :hibiscus: document 简写为 doc ）
+```
+    db.col.insert(doc)
+    // 或
+    db.col.save(doc)
+```
+
+查看集合中的所有文档（ 查看表中的数据 ）
+```
+    db.col.find()
+```
+
+更新文档
+```
+    db.col.update(
+        <query>,
+        <update>,
+        {
+            upsert: <boolean>,
+            multi: <boolean>,
+            writeConcern: <boolean>
+        }
+    );
 ```
